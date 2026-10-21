@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <link rel="stylesheet" href="tile2.css">
+
+   <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+.navbar {
+    height: 70px;
+    background: linear-gradient(135deg, #0f1111 0%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo */
+.nav-logo {
+    width: 120px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(255,107,53,0.4);
+}
+
+.logo::before {
+    content: "🪚";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+}
+
+/* Search Bar */
+.nav-search {
+    display: flex;
+    width: 550px;
+    height: 48px;
+    background: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    margin: 0 15px;
+}
+
+.nav-search:hover {
+    box-shadow: 0 8px 30px rgba(254,189,104,0.4);
+    transform: translateY(-2px);
+}
+
+.search-select {
+    min-width: 70px;
+    padding: 0 15px;
+    border: none;
+    background: #f8f9fa;
+    font-size: 14px;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    padding: 0 20px;
+    font-size: 16px;
+    outline: none;
+    width: 100%;
+}
+
+.search-icon {
+    width: 55px;
+    height: 48px;
+    background: linear-gradient(45deg, #febd69, #f7a944);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-icon:hover {
+    background: linear-gradient(45deg, #f7931e, #febd69);
+    transform: scale(1.05);
+}
+
+/* Menu Links */
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #febd69;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #febd69, #f7931e);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+.nav-link i{
+    font-size: 20px;
+}
+.menu-toggle{
+    /*display: none; */
+}
+
+
+/* product layout  */
+#products {
+    display: grid;
+    /*grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.image-container {
+    width: 100%;
+    height: 350px;
+}
+
+.image-container img {
+    width: 95%;
+    height: 90%;
+    object-fit: cover;
+}
+.container {
+    padding: 15px;
+}
+
+.product-name {
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.price {
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+
+   </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <div class="logo"></div>
+            </div> 
+            
+            <!-- Search Bar -->
+            <div class="nav-search">
+                <select class="search-select">
+                    <option>All</option>
+                    <option>Orders</option>
+                    <option>Tiles</option>
+                </select>
+                <input type="text" placeholder="Search Tiles..." class="search-input">
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div> 
+            
+            <!-- Menu Links -->
+            <div class="nav-menu">
+
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#orders" class="nav-link">Orders</a></li>
+                    
+                </ul> 
+            </div>
+        </nav>
+    </header>
+
+        <div id="products"></div>
+        <div id="products1"></div>
+
+    <script>
+        document.querySelector(".menu-toggle"),addEventListener("click", function(e){
+            p.preventDefault();
+            document.querySelector(".nav-links").classList.toggle("active")
+        })
+
+        
+        let products = {
+    data: [
+        {
+            productName: "Wooden Tile",
+            image: "H0e.avif",
+            price: 50,
+            
+        },
+
+        {
+            productName: "Marble Tile",
+            image: "H7b.avif",
+            price: 800
+        },
+        {
+            productName: "Wooden Tile",
+            image: "H0829.avif",
+            price: 500
+        },
+
+        {
+            productName: "Marble Tile",
+            image: "https://picsum.photos/300/200?random=2",
+            price: 800
+        },
+        {
+            productName: "Wooden Tile",
+            image: "https://picsum.photos/300/200?random=1",
+            price: 500
+        },
+
+        {
+            productName: "Marble Tile",
+            image: "https://picsum.photos/300/200?random=2",
+            price: 800
+        },
+
+        {
+            productName: "Ceramic Tile",
+            image: "H2.jpg",
+            price: 650
+        } 
+    ]
+};
+
+for (let item of products.data) {
+
+    let card = document.createElement("div");
+    card.classList.add("card");
+
+    let imgContainer = document.createElement("div");
+    imgContainer.classList.add("image-container");
+
+    let image = document.createElement("img");
+    image.src = item.image;
+
+    imgContainer.appendChild(image);
+    card.appendChild(imgContainer);
+
+    let container = document.createElement("div");
+    container.classList.add("container");
+
+    let name = document.createElement("h5");
+    name.classList.add("product-name");
+    name.innerText = item.productName;
+
+    let price = document.createElement("h6");
+    price.classList.add("price");
+    price.innerText = "₹" + item.price;
+
+    container.appendChild(name);
+    container.appendChild(price);
+
+    card.appendChild(container);
+
+    document.getElementById("products").appendChild(card);
+} 
+    </script> 
+</body>
+</html> 
